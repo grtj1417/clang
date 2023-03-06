@@ -86,7 +86,7 @@ enum State transfer(enum State state, char c) {
 }
 
 int main() {
-    int n;
+    int n = 0;
     char str[21];
 
     scanf("%d", &n);
