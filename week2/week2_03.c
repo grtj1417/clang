@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-    int N = 0, M = 0;
+    int N =2 , M = 0;
     scanf("%d\n %d", &N, &M);
     if(N = 1 && 2 <= M && M <= 9) {
         for (int i = 1; i <= M; i++){
