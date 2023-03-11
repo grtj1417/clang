@@ -5,7 +5,7 @@ int calculat_bit(unsigned int cal)
     // 正整數 他會計算有幾個bits
     int cnt = 0;
     for(int i = 0; i < 32; i++) {
-        cnt += (cal & 1);
+        cnt = cnt + (cal & 1);
         cal = cal >> 1;
     }
     return cnt;
