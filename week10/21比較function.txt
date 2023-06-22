@@ -1,0 +1,54 @@
+int compareWordsFrequency(const void *a, const void *b)
+{
+    const Word *wordA = (const Word *)a;
+    const Word *wordB = (const Word *)b;
+
+    // 比较单词频率
+    if (wordA->frequency != wordB->frequency)
+    {
+        return wordB->frequency - wordA->frequency;
+    }
+
+    // 比较单词每个字母
+    int minLength = strlen(wordA->word) < strlen(wordB->word) ? strlen(wordA->word) : strlen(wordB->word);
+    for (int i = 0; i < minLength; i++)
+    {
+        if (wordA->word[i] != wordB->word[i])
+        {
+            return wordA->word[i] - wordB->word[i];
+        }
+    }
+
+    // 比较单词长度
+    return strlen(wordB->word) - strlen(wordA->word);
+}
+
+void analyzeWordFrequency(char *sentence) {
+    Word words[1000];
+    int wordCount = 0;
+
+    char *word = strtok(sentence, " ");
+    while (word != NULL) {
+        int i;
+        for (i = 0; i < wordCount; i++) {
+            if (strcmp(words[i].word, word) == 0) {
+                words[i].frequency++;
+                break;
+            }
+        }
+
+        if (i == wordCount) {
+            strcpy(words[wordCount].word, word);
+            words[wordCount].frequency = 1;
+            wordCount++;
+        }
+
+        word = strtok(NULL, " ");
+    }
+
+    qsort(words, wordCount, sizeof(Word), compareWordsFrequency);
+
+    for (int i = 0; i < wordCount; i++) {
+        printf("%s,%d\n", words[i].word, words[i].frequency);
+    }
+}

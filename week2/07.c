@@ -33,7 +33,7 @@ int main()
             for (int j = 1; j <= i; j++) {
                 printf("%d", j);
             }
-            for (int k = 1; k <= ((M-i)*2+2); k++) {
+            for (int k = 0; k < ((M-i)*2+2); k++) {
                 printf("*");
             }
             for (int j = i; j >= 1; j--) {

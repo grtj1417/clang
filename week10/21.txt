@@ -1,0 +1,161 @@
+21. 文章分析
+給定一篇英文文章, 針對文章中的英文文字進行文字操作。
+
+文字操作有以下四種方式，會依據題目給定 2 個英文字(word) P、Q 進行操作:
+(1) 文字取代: 將英文文章中 P 字串以 Q 字串取代。
+(2) 文字前插入: 在英文文章 A 中 P 字串前插入 Q 字串。
+(3) 文字後插入: 在英文文章 A 中 P 字串後插入 Q 字串。
+(4) 文字刪除: 將英文文章 A 中 P 字串刪除。
+(5) 文字頻率: 分析文章 A 所有英文字 (word) 的頻率,依頻率由大至小排序,頻率相同則以 word 的字典序進行排序(That > This....)。
+
+--------------------------------------------------------------------------------------------------------------
+
+輸入範例說明:
+第一行為輸入一篇英文文章 A，文章中的英文文字間以空白相間隔
+第二行為輸入一個英文字P
+第三行為輸入一個英文字Q
+
+
+輸出範例說明:
+第一行輸出文字取代後的結果
+第二行輸出文字前插入後的結果
+第三行輸出文字後插入後的結果
+第四行輸出文字刪除後的結果
+第五行之後,每一行依序輸出排序後的英文字結果 (格式為英文字、出現頻率次數，中間以逗號間隔)
+
+--------------------------------------------------------------------------------------------------------------
+
+輸入範例 1：
+Can you can a can as a canner can can a can
+can
+ban
+
+
+輸出範例 1：
+Can you ban a ban as a canner ban ban a ban
+Can you ban a ban as a canner ban ban a ban
+Can you ban can a ban can as a canner ban can ban can a ban can
+Can you ban can a ban can as a canner ban can ban can a ban can
+Can you can ban a can ban as a canner can ban can ban a can ban
+Can you can ban a can ban as a canner can ban can ban a can ban
+Can you a as a canner a
+Can you a as a canner a
+can,5
+a,3
+Can,1
+as,1
+canner,1
+you,1
+
+--------------------------------------------------------------------------------------------------------------
+
+輸入範例 2：
+Whether the weather be cold or whether the weather be hot
+the
+a
+
+
+輸出範例 2：
+Whether a weather be cold or whether a weather be hot
+Whether a weather be cold or whether a weather be hot
+Whether a the weather be cold or whether a the weather be hot
+Whether a the weather be cold or whether a the weather be hot
+Whether the a weather be cold or whether the a weather be hot
+Whether the a weather be cold or whether the a weather be hot
+Whether weather be cold or whether weather be hot
+Whether weather be cold or whether weather be hot
+be,2
+the,2
+weather,2
+Whether,1
+cold,1
+hot,1
+or,1
+whether,1
+
+--------------------------------------------------------------------------------------------------------------
+
+輸入範例 3：
+The bmi doctors want to develop a bmi calculator to help people calculate bmi
+bmi
+BMI
+
+
+輸出範例 3：
+The BMI doctors want to develop a BMI calculator to help people calculate BMI
+The BMI doctors want to develop a BMI calculator to help people calculate BMI
+The BMI bmi doctors want to develop a BMI bmi calculator to help people calculate BMI bmi
+The BMI bmi doctors want to develop a BMI bmi calculator to help people calculate BMI bmi
+The bmi BMI doctors want to develop a bmi BMI calculator to help people calculate bmi BMI
+The bmi BMI doctors want to develop a bmi BMI calculator to help people calculate bmi BMI
+The doctors want to develop a calculator to help people calculate
+The doctors want to develop a calculator to help people calculate
+
+bmi,3
+to,2
+The,1
+a,1
+calculate,1
+calculator,1
+develop,1
+doctors,1
+help,1
+people,1
+want,1
+
+--------------------------------------------------------------------------------------------------------------
+
+輸入範例 4：
+I wish to wish the wish you wish to wish but if you wish the wish the witch wishes I wont wish the wish you wish to wish
+wish
+wished
+
+
+輸出範例 4：
+I wished to wished the wished you wished to wished but if you wished the wished the witch wishes I wont wished the wished you wished to wished
+I wished to wished the wished you wished to wished but if you wished the wished the witch wishes I wont wished the wished you wished to wished
+
+I wished wish to wished wish the wished wish you wished wish to wished wish but if you wished wish the wished wish the witch wishes I wont wished wish the wished wish you wished wish to wished wish
+I wished wish to wished wish the wished wish you wished wish to wished wish but if you wished wish the wished wish the witch wishes I wont wished wish the wished wish you wished wish to wished wish
+
+I wish wished to wish wished the wish wished you wish wished to wish wished but if you wish wished the wish wished the witch wishes I wont wish wished the wish wished you wish wished to wish wished
+I wish wished to wish wished the wish wished you wish wished to wish wished but if you wish wished the wish wished the witch wishes I wont wish wished the wish wished you wish wished to wish wished
+
+I to the you to but if you the the witch wishes I wont the you to
+I to the you to but if you the the witch wishes I wont the you to
+wish,11
+the,4
+to,3
+you,3
+I,2
+but,1
+if,1
+wishes,1
+witch,1
+wont,1
+--------------------------------------------------------------------------------------------------------------
+
+輸入範例 5：
+Fuzzy Wuzzy was a bear and Fuzzy Wuzzy had no hair
+Fuzzy
+Fuzzer
+
+
+輸出範例 5：
+Fuzzer Wuzzy was a bear and Fuzzer Wuzzy had no hair
+Fuzzer Wuzzy was a bear and Fuzzer Wuzzy had no hair
+Fuzzer Fuzzy Wuzzy was a bear and Fuzzer Fuzzy Wuzzy had no hair
+Fuzzer Fuzzy Wuzzy was a bear and Fuzzer Fuzzy Wuzzy had no hair
+Fuzzy Fuzzer Wuzzy was a bear and Fuzzy Fuzzer Wuzzy had no hair
+Fuzzy Fuzzer Wuzzy was a bear and Fuzzy Fuzzer Wuzzy had no hair
+Wuzzy was a bear and Wuzzy had no hair
+Wuzzy was a bear and Wuzzy had no hair
+Fuzzy,2
+Wuzzy,2
+and,1
+a,1
+bear,1
+had,1
+hair,1
+no,1
+was,1
